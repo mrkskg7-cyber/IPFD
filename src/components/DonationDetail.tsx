@@ -19,8 +19,8 @@ export function DonationDetail({ donationId, onNavigate }: DonationDetailProps) 
 
   if (!donation) {
     return (
-      <div className="min-h-screen bg-gray-50 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen w-full bg-gray-50 py-8">
+        <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <p className="text-gray-600">Donation project not found</p>
         </div>
       </div>
@@ -51,8 +51,8 @@ export function DonationDetail({ donationId, onNavigate }: DonationDetailProps) 
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen w-full bg-gray-50 py-8">
+      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         {/* Back Button */}
         <button
           onClick={() => onNavigate('donations')}

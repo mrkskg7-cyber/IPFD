@@ -90,8 +90,8 @@ export function CommunityPage({ onNavigate }: CommunityPageProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen w-full bg-gray-50 py-8">
+      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl text-gray-900 mb-2">Impact Communities</h1>

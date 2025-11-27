@@ -3,7 +3,6 @@ import { Users, TrendingUp, Heart, DollarSign, Shield, Building, Search, Filter,
 import { BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import type { Page } from '../App';
 import { Footer } from './Footer';
-import logo from 'figma:asset/dd1b3a822900592c28a41fdb0ab7ea686e2ed1f3.png';
 
 interface AdminDashboardProps {
   onNavigate: (page: Page) => void;
@@ -250,19 +249,18 @@ export function AdminDashboard({ onNavigate, onLogout }: AdminDashboardProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen w-full bg-gray-50">
       {/* Admin Header */}
-      <div className="bg-gradient-to-r from-purple-900 to-indigo-900 shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="bg-gradient-to-r from-purple-900 to-indigo-900 shadow-lg w-full">
+        <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <img src={logo} alt="IMPACTFUNDER" className="h-12 w-auto mr-3 rounded-xl shadow-md" />
               <div>
                 <h1 
                   className="text-xl text-white tracking-wider"
                   style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: '800' }}
                 >
-                  IMPACTFUNDER ADMIN
+                  IPFD ADMIN
                 </h1>
                 <p className="text-xs text-purple-300">Platform Management & Analytics</p>
               </div>
@@ -277,7 +275,7 @@ export function AdminDashboard({ onNavigate, onLogout }: AdminDashboardProps) {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-8">
         {/* Overview Stats */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <div className="bg-white p-6 rounded-xl shadow-sm border-l-4 border-emerald-500">

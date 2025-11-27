@@ -124,11 +124,25 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-background text-foreground;
     font-family: 'Montserrat', sans-serif;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
   }
 }
 
@@ -189,4 +203,30 @@
 
 html {
   font-size: var(--font-size);
+  scroll-behavior: smooth;
+}
+
+/* Full-screen layout optimizations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure images don't overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive container utilities */
+@media (min-width: 1920px) {
+  :root {
+    --font-size: 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --font-size: 14px;
+  }
 }

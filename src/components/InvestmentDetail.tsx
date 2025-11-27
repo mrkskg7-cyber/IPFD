@@ -33,8 +33,8 @@ export function InvestmentDetail({ investmentId, onNavigate }: InvestmentDetailP
 
   if (!investment) {
     return (
-      <div className="min-h-screen bg-gray-50 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen w-full bg-gray-50 py-8">
+        <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <p className="text-gray-600">Investment not found</p>
         </div>
       </div>
@@ -78,8 +78,8 @@ export function InvestmentDetail({ investmentId, onNavigate }: InvestmentDetailP
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen w-full bg-gray-50 py-8">
+      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         {/* Back Button */}
         <button
           onClick={() => onNavigate('investments')}

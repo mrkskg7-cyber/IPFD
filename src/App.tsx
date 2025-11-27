@@ -58,7 +58,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen h-screen w-screen bg-gray-50 overflow-x-hidden">
       {currentPage !== 'landing' && currentPage !== 'admin' && currentPage !== 'admin-login' && (
         <Header 
           currentPage={currentPage} 

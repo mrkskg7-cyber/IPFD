@@ -1,4 +1,4 @@
-// Mock data for the Impactfunder application
+// Mock data for the IPFD application
 
 export const investments = [
   {

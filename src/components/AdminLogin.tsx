@@ -58,12 +58,12 @@ export function AdminLogin({ onAdminLogin, onNavigate }: AdminLoginProps) {
                 <Shield className="w-10 h-10 text-white" />
               </div>
             </div>
-            <img src={logo} alt="IMPACTFUNDER" className="h-12 w-auto mx-auto mb-3 rounded-xl shadow-lg" />
+            <img src={logo} alt="IPFD" className="h-10 w-auto mx-auto mb-3 rounded-lg shadow-lg" />
             <h1 
               className="text-2xl text-white tracking-wider mb-2"
               style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: '800' }}
             >
-              IMPACTFUNDER ADMIN
+              IPFD ADMIN
             </h1>
             <p className="text-purple-100 text-sm">Secure Access to Platform Management</p>
           </div>
@@ -151,7 +151,7 @@ export function AdminLogin({ onAdminLogin, onNavigate }: AdminLoginProps) {
           {/* Footer */}
           <div className="bg-gray-50 px-8 py-4 border-t border-gray-200">
             <div className="flex items-center justify-between text-xs text-gray-500">
-              <span>© 2025 IMPACTFUNDER</span>
+              <span>© 2025 IPFD</span>
               <div className="flex items-center">
                 <Shield className="w-3 h-3 mr-1" />
                 <span>Secure Connection</span>

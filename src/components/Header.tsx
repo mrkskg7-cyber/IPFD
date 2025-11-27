@@ -1,7 +1,6 @@
 import { Menu, Bell, User, LogOut, X, Home, Calendar, TrendingUp, Heart, Users } from 'lucide-react';
 import { useState } from 'react';
 import type { Page } from '../App';
-import logo from 'figma:asset/dd1b3a822900592c28a41fdb0ab7ea686e2ed1f3.png';
 
 interface HeaderProps {
   currentPage: Page;
@@ -70,8 +69,8 @@ export function Header({ currentPage, onNavigate, onLogout, isLoggedIn }: Header
   ];
 
   return (
-    <header className="bg-gradient-to-r from-emerald-900 to-teal-900 shadow-lg sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="bg-gradient-to-r from-emerald-900 to-teal-900 shadow-lg sticky top-0 z-50 w-full">
+      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
         <div className="flex justify-between items-center h-16">
           {/* Left Side - Logo */}
           <div className="flex items-center">
@@ -79,16 +78,15 @@ export function Header({ currentPage, onNavigate, onLogout, isLoggedIn }: Header
               className="flex items-center cursor-pointer"
               onClick={() => onNavigate('dashboard')}
             >
-              <img src={logo} alt="IMPACTFUNDER" className="h-12 w-auto rounded-xl shadow-md" />
               <span 
-                className="ml-3 text-xl text-white tracking-wider" 
+                className="text-xl text-white tracking-wider" 
                 style={{ 
                   fontFamily: 'Montserrat, sans-serif', 
                   fontWeight: '800',
                   letterSpacing: '0.1em'
                 }}
               >
-                IMPACTFUNDER
+                IPFD
               </span>
             </div>
           </div>

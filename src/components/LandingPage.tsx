@@ -1,7 +1,6 @@
 import { ArrowRight, TrendingUp, Heart, Shield, Users, Award, CheckCircle, Globe } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { CurvedLogo } from './CurvedLogo';
-import logo from 'figma:asset/dd1b3a822900592c28a41fdb0ab7ea686e2ed1f3.png';
 import type { Page } from '../App';
 
 interface LandingPageProps {
@@ -58,31 +57,27 @@ export function LandingPage({ onNavigate, onLogin }: LandingPageProps) {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen w-full">
       {/* Navigation */}
-      <nav className="bg-gradient-to-r from-emerald-900 to-teal-900 shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 w-full">
+        <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <div className="flex justify-between items-center h-20 py-3">
-            {/* Empty left space for balance - hidden on mobile */}
-            <div className="hidden lg:flex flex-1"></div>
-            
-            {/* Centered Logo & Branding */}
-            <div className="flex items-center justify-start lg:justify-center flex-1 lg:flex-1">
-              <img src={logo} alt="IMPACTFUNDER" className="h-12 sm:h-14 lg:h-16 w-auto rounded-2xl shadow-lg" />
+            {/* Left side - Logo & Branding */}
+            <div className="flex items-center">
               <span 
-                className="ml-2 sm:ml-4 text-sm sm:text-xl lg:text-2xl text-white tracking-wider drop-shadow-lg" 
+                className="text-sm sm:text-xl lg:text-2xl bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent tracking-wider" 
                 style={{ 
                   fontFamily: 'Montserrat, sans-serif', 
                   fontWeight: '900',
                   letterSpacing: '0.1em'
                 }}
               >
-                IMPACTFUNDER
+                IPFD
               </span>
             </div>
             
             {/* Right side - Buttons */}
-            <div className="flex items-center justify-end space-x-2 sm:space-x-3 flex-1">
+            <div className="flex items-center space-x-2 sm:space-x-3">
               <button
                 onClick={() => onNavigate('admin-login')}
                 className="px-3 sm:px-5 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors shadow-lg flex items-center text-xs sm:text-sm"
@@ -103,16 +98,16 @@ export function LandingPage({ onNavigate, onLogin }: LandingPageProps) {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 pt-20 pb-32 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 pt-12 sm:pt-16 md:pt-20 pb-20 sm:pb-28 md:pb-32 overflow-hidden w-full">
+        <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl text-gray-900 mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-900 mb-4 sm:mb-6">
               Invest with Purpose.
               <span className="block mt-2 bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 bg-clip-text text-transparent">
                 Create Real Impact.
               </span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
               The first platform combining financial returns with verified social and environmental impact. 
               Invest, donate, and track your contribution to a better world.
             </p>
@@ -134,11 +129,11 @@ export function LandingPage({ onNavigate, onLogin }: LandingPageProps) {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mt-12 sm:mt-16 md:mt-20">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl text-gray-900 mb-2">{stat.value}</div>
-                <div className="text-gray-600">{stat.label}</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl text-gray-900 mb-1 sm:mb-2">{stat.value}</div>
+                <div className="text-sm sm:text-base text-gray-600">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -146,16 +141,16 @@ export function LandingPage({ onNavigate, onLogin }: LandingPageProps) {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl text-gray-900 mb-4">Why Impactfunder?</h2>
-            <p className="text-xl text-gray-600">
+      <section className="py-12 sm:py-16 md:py-20 bg-white w-full">
+        <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+          <div className="text-center mb-10 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 mb-3 sm:mb-4">Why IPFD?</h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 px-4">
               A complete ecosystem for impact-driven investing and giving
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
@@ -176,16 +171,16 @@ export function LandingPage({ onNavigate, onLogin }: LandingPageProps) {
       </section>
 
       {/* Impact Categories */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl text-gray-900 mb-4">Choose Your Impact</h2>
-            <p className="text-xl text-gray-600">
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-50 w-full">
+        <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+          <div className="text-center mb-10 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 mb-3 sm:mb-4">Choose Your Impact</h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 px-4">
               Support causes that matter to you
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {impactCategories.map((category, index) => (
               <div
                 key={index}
@@ -207,16 +202,16 @@ export function LandingPage({ onNavigate, onLogin }: LandingPageProps) {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl text-gray-900 mb-4">How It Works</h2>
-            <p className="text-xl text-gray-600">
+      <section className="py-12 sm:py-16 md:py-20 bg-white w-full">
+        <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+          <div className="text-center mb-10 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 mb-3 sm:mb-4">How It Works</h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 px-4">
               Start creating impact in three simple steps
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10">
             <div className="text-center">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl text-green-600">1</span>
@@ -251,17 +246,17 @@ export function LandingPage({ onNavigate, onLogin }: LandingPageProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-emerald-700 via-green-600 to-teal-600">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl text-white mb-4">
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 w-full">
+        <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 mb-3 sm:mb-4">
             Ready to Make a Difference?
           </h2>
-          <p className="text-xl text-emerald-50 mb-8">
+          <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-6 sm:mb-8 px-4">
             Join thousands of investors creating positive change while building wealth
           </p>
           <button
             onClick={onLogin}
-            className="px-8 py-4 bg-white text-emerald-700 rounded-lg hover:bg-emerald-50 transition-colors inline-flex items-center shadow-lg"
+            className="px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-lg hover:from-emerald-700 hover:to-teal-700 transition-colors inline-flex items-center shadow-lg"
           >
             Get Started Today
             <ArrowRight className="ml-2 w-5 h-5" />
@@ -270,56 +265,63 @@ export function LandingPage({ onNavigate, onLogin }: LandingPageProps) {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-br from-emerald-950 to-teal-950 text-gray-300 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
+      <footer className="bg-gradient-to-br from-emerald-100 via-green-100 to-teal-100 text-gray-700 py-12 w-full">
+        <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div>
-              <div className="flex items-center mb-4">
-                <img src={logo} alt="IMPACTFUNDER" className="h-16 w-auto rounded-2xl shadow-lg" />
-              </div>
-              <p className="text-sm">
+              <h3 
+                className="text-2xl text-gray-900 mb-4 tracking-wider"
+                style={{ 
+                  fontFamily: 'Montserrat, sans-serif', 
+                  fontWeight: '800',
+                  letterSpacing: '0.1em'
+                }}
+              >
+                IPFD
+              </h3>
+              <p className="text-sm text-gray-600">
                 Funding for a better tomorrow
               </p>
             </div>
             <div>
-              <h4 className="text-white mb-4">Platform</h4>
+              <h4 className="text-gray-900 mb-4">Platform</h4>
               <ul className="space-y-2 text-sm">
-                <li>Investments</li>
-                <li>Donations</li>
-                <li>Portfolio</li>
-                <li>Community</li>
+                <li className="hover:text-emerald-600 cursor-pointer transition-colors">Investments</li>
+                <li className="hover:text-emerald-600 cursor-pointer transition-colors">Donations</li>
+                <li className="hover:text-emerald-600 cursor-pointer transition-colors">Portfolio</li>
+                <li className="hover:text-emerald-600 cursor-pointer transition-colors">Community</li>
               </ul>
             </div>
             <div>
-              <h4 className="text-white mb-4">Company</h4>
+              <h4 className="text-gray-900 mb-4">Company</h4>
               <ul className="space-y-2 text-sm">
-                <li>About Us</li>
-                <li>Careers</li>
-                <li>Blog</li>
-                <li>Press</li>
+                <li className="hover:text-emerald-600 cursor-pointer transition-colors">About Us</li>
+                <li className="hover:text-emerald-600 cursor-pointer transition-colors">Careers</li>
+                <li className="hover:text-emerald-600 cursor-pointer transition-colors">Blog</li>
+                <li className="hover:text-emerald-600 cursor-pointer transition-colors">Press</li>
               </ul>
             </div>
             <div>
-              <h4 className="text-white mb-4">Legal</h4>
+              <h4 className="text-gray-900 mb-4">Legal</h4>
               <ul className="space-y-2 text-sm">
-                <li>Privacy Policy</li>
-                <li>Terms of Service</li>
-                <li>Compliance</li>
-                <li>Security</li>
+                <li className="hover:text-emerald-600 cursor-pointer transition-colors">Privacy Policy</li>
+                <li className="hover:text-emerald-600 cursor-pointer transition-colors">Terms of Service</li>
+                <li className="hover:text-emerald-600 cursor-pointer transition-colors">Compliance</li>
+                <li className="hover:text-emerald-600 cursor-pointer transition-colors">Security</li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 flex justify-between items-center text-sm">
-            <div>
-              © 2025 <span style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: '800' }}>IMPACTFUNDER</span>. All rights reserved.
-            </div>
+          <div className="border-t border-emerald-200 mt-8 pt-8 flex flex-col items-center text-sm gap-4">
             <button
               onClick={() => onNavigate('admin-login')}
-              className="flex items-center text-gray-400 hover:text-white transition-colors"
+              className="flex items-center text-gray-600 hover:text-emerald-700 transition-colors"
             >
               <Shield className="w-4 h-4 mr-2" />
               Admin Portal
             </button>
+            <div className="text-gray-600">
+              © 2025 <span style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: '800' }}>IPFD</span>. All rights reserved.
+            </div>
           </div>
         </div>
       </footer>
