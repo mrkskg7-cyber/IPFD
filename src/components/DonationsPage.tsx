@@ -1,8 +1,9 @@
-import { Search, Heart, Shield, AlertCircle } from 'lucide-react';
+import { Search, Heart, Shield, Users } from 'lucide-react';
 import { useState } from 'react';
 import type { Page } from '../App';
 import { donations } from '../data/mockData';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { Footer } from './Footer';
 
 interface DonationsPageProps {
   onNavigate: (page: Page, id?: string) => void;
@@ -190,6 +191,7 @@ export function DonationsPage({ onNavigate }: DonationsPageProps) {
           </div>
         )}
       </div>
+      <Footer />
     </div>
   );
 }

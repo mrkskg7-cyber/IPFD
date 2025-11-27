@@ -1,6 +1,7 @@
 import { User, Mail, Phone, MapPin, Shield, Bell, Lock, CreditCard, Award } from 'lucide-react';
 import { useState } from 'react';
 import type { Page } from '../App';
+import { Footer } from './Footer';
 
 interface ProfilePageProps {
   onNavigate: (page: Page) => void;
@@ -24,7 +25,7 @@ export function ProfilePage({ onNavigate }: ProfilePageProps) {
     { icon: Award, title: 'Early Adopter', description: 'Joined in the first 1000 users', color: 'text-yellow-600', bgColor: 'bg-yellow-100' },
     { icon: Shield, title: 'Verified Investor', description: 'Completed KYC verification', color: 'text-green-600', bgColor: 'bg-green-100' },
     { icon: Award, title: 'Impact Champion', description: 'Impacted over 1000 lives', color: 'text-blue-600', bgColor: 'bg-blue-100' },
-    { icon: Award, title: 'Generous Donor', description: 'Donated over ₹10,000', color: 'text-red-600', bgColor: 'bg-red-100' },
+    { icon: Award, title: 'Generous Donor', description: 'Donated over ���10,000', color: 'text-red-600', bgColor: 'bg-red-100' },
   ];
 
   return (
@@ -179,17 +180,17 @@ export function ProfilePage({ onNavigate }: ProfilePageProps) {
                   <div className="space-y-4">
                     <div>
                       <label className="block text-sm text-gray-700 mb-2">Risk Tolerance</label>
-                      <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                      <select defaultValue="Moderate" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
                         <option>Conservative</option>
-                        <option selected>Moderate</option>
+                        <option>Moderate</option>
                         <option>Aggressive</option>
                       </select>
                     </div>
                     <div>
                       <label className="block text-sm text-gray-700 mb-2">Investment Horizon</label>
-                      <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                      <select defaultValue="Medium Term (3-5 years)" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
                         <option>Short Term (1-3 years)</option>
-                        <option selected>Medium Term (3-5 years)</option>
+                        <option>Medium Term (3-5 years)</option>
                         <option>Long Term (5+ years)</option>
                       </select>
                     </div>
@@ -348,6 +349,7 @@ export function ProfilePage({ onNavigate }: ProfilePageProps) {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

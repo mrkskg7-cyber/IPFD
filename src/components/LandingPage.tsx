@@ -1,6 +1,8 @@
-import { ArrowRight, TrendingUp, Heart, Shield, Users, BarChart3, Coins, Globe } from 'lucide-react';
-import type { Page } from '../App';
+import { ArrowRight, TrendingUp, Heart, Shield, Users, Award, CheckCircle, Globe } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { CurvedLogo } from './CurvedLogo';
+import logo from 'figma:asset/dd1b3a822900592c28a41fdb0ab7ea686e2ed1f3.png';
+import type { Page } from '../App';
 
 interface LandingPageProps {
   onNavigate: (page: Page) => void;
@@ -25,7 +27,7 @@ export function LandingPage({ onNavigate, onLogin }: LandingPageProps) {
       description: 'Every transaction and impact metric is recorded on blockchain for immutable verification and trust.',
     },
     {
-      icon: BarChart3,
+      icon: Award,
       title: 'Live Impact Dashboard',
       description: 'Track your financial returns alongside real-world impact metrics like CO₂ saved and lives improved.',
     },
@@ -35,7 +37,7 @@ export function LandingPage({ onNavigate, onLogin }: LandingPageProps) {
       description: 'Join circles of like-minded changemakers focused on climate, education, health, and more.',
     },
     {
-      icon: Coins,
+      icon: CheckCircle,
       title: 'AI Portfolios',
       description: 'Get personalized investment recommendations based on your values, risk tolerance, and impact goals.',
     },
@@ -60,17 +62,38 @@ export function LandingPage({ onNavigate, onLogin }: LandingPageProps) {
       {/* Navigation */}
       <nav className="bg-gradient-to-r from-emerald-900 to-teal-900 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-teal-400 rounded-lg flex items-center justify-center mr-2">
-                <span className="text-emerald-900">IF</span>
-              </div>
-              <span className="text-xl text-white tracking-wider" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: '800' }}>IMPACTFUNDER</span>
+          <div className="flex justify-between items-center h-20 py-3">
+            {/* Empty left space for balance - hidden on mobile */}
+            <div className="hidden lg:flex flex-1"></div>
+            
+            {/* Centered Logo & Branding */}
+            <div className="flex items-center justify-start lg:justify-center flex-1 lg:flex-1">
+              <img src={logo} alt="IMPACTFUNDER" className="h-12 sm:h-14 lg:h-16 w-auto rounded-2xl shadow-lg" />
+              <span 
+                className="ml-2 sm:ml-4 text-sm sm:text-xl lg:text-2xl text-white tracking-wider drop-shadow-lg" 
+                style={{ 
+                  fontFamily: 'Montserrat, sans-serif', 
+                  fontWeight: '900',
+                  letterSpacing: '0.1em'
+                }}
+              >
+                IMPACTFUNDER
+              </span>
             </div>
-            <div className="flex items-center space-x-4">
+            
+            {/* Right side - Buttons */}
+            <div className="flex items-center justify-end space-x-2 sm:space-x-3 flex-1">
+              <button
+                onClick={() => onNavigate('admin-login')}
+                className="px-3 sm:px-5 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors shadow-lg flex items-center text-xs sm:text-sm"
+              >
+                <Shield className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+                <span className="hidden sm:inline">Admin Login</span>
+                <span className="sm:hidden">Admin</span>
+              </button>
               <button
                 onClick={onLogin}
-                className="px-6 py-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-lg hover:from-emerald-600 hover:to-teal-600 transition-colors shadow-lg"
+                className="px-4 sm:px-6 py-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white rounded-lg hover:from-emerald-600 hover:to-teal-600 transition-colors shadow-lg text-xs sm:text-sm"
               >
                 Get Started
               </button>
@@ -252,10 +275,7 @@ export function LandingPage({ onNavigate, onLogin }: LandingPageProps) {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-teal-400 rounded-lg flex items-center justify-center mr-2">
-                  <span className="text-emerald-900 font-bold">IF</span>
-                </div>
-                <span className="text-white tracking-wider" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: '800' }}>IMPACTFUNDER</span>
+                <img src={logo} alt="IMPACTFUNDER" className="h-16 w-auto rounded-2xl shadow-lg" />
               </div>
               <p className="text-sm">
                 Funding for a better tomorrow
@@ -289,8 +309,17 @@ export function LandingPage({ onNavigate, onLogin }: LandingPageProps) {
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
-            © 2025 <span style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: '800' }}>IMPACTFUNDER</span>. All rights reserved.
+          <div className="border-t border-gray-800 mt-8 pt-8 flex justify-between items-center text-sm">
+            <div>
+              © 2025 <span style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: '800' }}>IMPACTFUNDER</span>. All rights reserved.
+            </div>
+            <button
+              onClick={() => onNavigate('admin-login')}
+              className="flex items-center text-gray-400 hover:text-white transition-colors"
+            >
+              <Shield className="w-4 h-4 mr-2" />
+              Admin Portal
+            </button>
           </div>
         </div>
       </footer>

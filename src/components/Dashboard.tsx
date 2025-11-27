@@ -1,7 +1,8 @@
-import { TrendingUp, Heart, Leaf, Users, Briefcase, ArrowRight, Shield } from 'lucide-react';
+import { TrendingUp, Heart, Leaf, Users, Briefcase, ArrowRight, Shield, ArrowLeft, Home } from 'lucide-react';
 import { LineChart, Line, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import type { Page } from '../App';
 import { userPortfolio, investments, donations } from '../data/mockData';
+import { Footer } from './Footer';
 
 interface DashboardProps {
   onNavigate: (page: Page, id?: string) => void;
@@ -61,8 +62,16 @@ export function Dashboard({ onNavigate }: DashboardProps) {
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+        {/* Header with Back Button */}
         <div className="mb-8">
+          <button
+            onClick={() => onNavigate('landing')}
+            className="flex items-center space-x-2 px-4 py-2 text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition-colors mb-4"
+          >
+            <ArrowLeft className="w-5 h-5" />
+            <Home className="w-5 h-5" />
+            <span>Back to Home</span>
+          </button>
           <h1 className="text-3xl text-gray-900 mb-2">Welcome back, Investor!</h1>
           <p className="text-gray-600">Here's your impact and investment overview</p>
         </div>
@@ -292,6 +301,7 @@ export function Dashboard({ onNavigate }: DashboardProps) {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

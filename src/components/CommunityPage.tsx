@@ -1,8 +1,8 @@
-import { Users, TrendingUp, MessageCircle, UserPlus } from 'lucide-react';
+import { Users, MessageCircle, Calendar, TrendingUp, Heart, UserPlus, Search, Filter, MapPin } from 'lucide-react';
 import { useState } from 'react';
 import type { Page } from '../App';
-import { communities } from '../data/mockData';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { Footer } from './Footer';
 
 interface CommunityPageProps {
   onNavigate: (page: Page) => void;
@@ -10,6 +10,41 @@ interface CommunityPageProps {
 
 export function CommunityPage({ onNavigate }: CommunityPageProps) {
   const [joinedCommunities, setJoinedCommunities] = useState<string[]>(['com-1']);
+
+  const communities = [
+    {
+      id: 'com-1',
+      name: 'Climate Action Circle',
+      description: 'Join thousands of climate warriors investing in renewable energy and sustainable solutions',
+      members: 12450,
+      totalImpact: '₹185 Cr impact',
+      image: 'https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=500',
+    },
+    {
+      id: 'com-2',
+      name: 'Education Champions',
+      description: 'Empowering underprivileged children through quality education initiatives',
+      members: 8320,
+      totalImpact: '₹120 Cr impact',
+      image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500',
+    },
+    {
+      id: 'com-3',
+      name: 'Healthcare Heroes',
+      description: 'Supporting healthcare access in rural and underserved communities',
+      members: 6890,
+      totalImpact: '��95 Cr impact',
+      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500',
+    },
+    {
+      id: 'com-4',
+      name: 'Women Empowerment',
+      description: 'Investing in women-led businesses and gender equality projects',
+      members: 9540,
+      totalImpact: '₹142 Cr impact',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500',
+    },
+  ];
 
   const toggleJoin = (communityId: string) => {
     if (joinedCommunities.includes(communityId)) {
@@ -245,6 +280,7 @@ export function CommunityPage({ onNavigate }: CommunityPageProps) {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

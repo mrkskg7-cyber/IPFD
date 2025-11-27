@@ -1,7 +1,8 @@
-import { Search, Filter, TrendingUp, Shield, Clock } from 'lucide-react';
+import { Search, Filter, TrendingUp, Building, Heart, Zap, Droplet, Users, Shield, Clock } from 'lucide-react';
 import { useState } from 'react';
 import type { Page } from '../App';
 import { investments } from '../data/mockData';
+import { Footer } from './Footer';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 interface InvestmentsPageProps {
@@ -169,6 +170,7 @@ export function InvestmentsPage({ onNavigate }: InvestmentsPageProps) {
           </div>
         )}
       </div>
+      <Footer />
     </div>
   );
 }

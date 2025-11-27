@@ -1,8 +1,10 @@
-import { ArrowLeft, Shield, TrendingUp, Clock, Users, Target, CheckCircle, AlertCircle } from 'lucide-react';
+import { TrendingUp, Shield, Users, Calendar, MapPin, Info, Check, Clock, Leaf, Building, Droplet, ArrowLeft, CheckCircle, Target, AlertCircle } from 'lucide-react';
 import { useState } from 'react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import type { Page } from '../App';
 import { investments } from '../data/mockData';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { Footer } from './Footer';
 
 interface InvestmentDetailProps {
   investmentId: string;
@@ -12,6 +14,20 @@ interface InvestmentDetailProps {
 export function InvestmentDetail({ investmentId, onNavigate }: InvestmentDetailProps) {
   const [investmentAmount, setInvestmentAmount] = useState('');
   const [showInvestModal, setShowInvestModal] = useState(false);
+  const [showDetailsForm, setShowDetailsForm] = useState(false);
+  const [userDetails, setUserDetails] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    address: '',
+    city: '',
+    state: '',
+    pincode: '',
+    panCard: '',
+    companyName: '',
+    gstNumber: '',
+  });
+  const [paymentMode, setPaymentMode] = useState('upi');
 
   const investment = investments.find(inv => inv.id === investmentId);
 
@@ -28,14 +44,37 @@ export function InvestmentDetail({ investmentId, onNavigate }: InvestmentDetailP
   const progressPercentage = (investment.raisedAmount / investment.targetAmount) * 100;
 
   const handleInvest = () => {
+    if (!investmentAmount || Number(investmentAmount) < investment.minInvestment) {
+      alert('Please enter a valid investment amount');
+      return;
+    }
+    setShowDetailsForm(true);
+  };
+
+  const handleDetailsSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setShowDetailsForm(false);
     setShowInvestModal(true);
   };
 
   const confirmInvestment = () => {
     // In real app, this would process the investment
     setShowInvestModal(false);
-    alert(`Investment of ₹${investmentAmount} confirmed! (Demo)`);
+    alert(`Investment of ₹${investmentAmount} confirmed via ${paymentMode.toUpperCase()}! (Demo)`);
     setInvestmentAmount('');
+    setShowDetailsForm(false);
+    setUserDetails({
+      fullName: '',
+      email: '',
+      phone: '',
+      address: '',
+      city: '',
+      state: '',
+      pincode: '',
+      panCard: '',
+      companyName: '',
+      gstNumber: '',
+    });
   };
 
   return (
@@ -233,7 +272,6 @@ export function InvestmentDetail({ investmentId, onNavigate }: InvestmentDetailP
               {/* Invest Button */}
               <button
                 onClick={handleInvest}
-                disabled={!investmentAmount || Number(investmentAmount) < investment.minInvestment}
                 className="w-full py-3 bg-gradient-to-r from-emerald-600 to-green-600 text-white rounded-lg hover:from-emerald-700 hover:to-green-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed mb-4 shadow-lg"
               >
                 Invest Now
@@ -299,6 +337,159 @@ export function InvestmentDetail({ investmentId, onNavigate }: InvestmentDetailP
           </div>
         </div>
       )}
+
+      {/* Details Form */}
+      {showDetailsForm && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-xl p-6 max-w-2xl w-full">
+            <h3 className="text-xl text-gray-900 mb-4">Enter Your Details</h3>
+            <form onSubmit={handleDetailsSubmit}>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm text-gray-700 mb-2">Full Name</label>
+                  <input
+                    type="text"
+                    value={userDetails.fullName}
+                    onChange={(e) => setUserDetails({ ...userDetails, fullName: e.target.value })}
+                    className="w-full py-3 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm text-gray-700 mb-2">Email</label>
+                  <input
+                    type="email"
+                    value={userDetails.email}
+                    onChange={(e) => setUserDetails({ ...userDetails, email: e.target.value })}
+                    className="w-full py-3 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm text-gray-700 mb-2">Phone</label>
+                  <input
+                    type="tel"
+                    value={userDetails.phone}
+                    onChange={(e) => setUserDetails({ ...userDetails, phone: e.target.value })}
+                    className="w-full py-3 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm text-gray-700 mb-2">Address</label>
+                  <input
+                    type="text"
+                    value={userDetails.address}
+                    onChange={(e) => setUserDetails({ ...userDetails, address: e.target.value })}
+                    className="w-full py-3 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm text-gray-700 mb-2">City</label>
+                  <input
+                    type="text"
+                    value={userDetails.city}
+                    onChange={(e) => setUserDetails({ ...userDetails, city: e.target.value })}
+                    className="w-full py-3 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm text-gray-700 mb-2">State</label>
+                  <input
+                    type="text"
+                    value={userDetails.state}
+                    onChange={(e) => setUserDetails({ ...userDetails, state: e.target.value })}
+                    className="w-full py-3 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm text-gray-700 mb-2">Pincode</label>
+                  <input
+                    type="text"
+                    value={userDetails.pincode}
+                    onChange={(e) => setUserDetails({ ...userDetails, pincode: e.target.value })}
+                    className="w-full py-3 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm text-gray-700 mb-2">PAN Card</label>
+                  <input
+                    type="text"
+                    value={userDetails.panCard}
+                    onChange={(e) => setUserDetails({ ...userDetails, panCard: e.target.value })}
+                    className="w-full py-3 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm text-gray-700 mb-2">Company Name</label>
+                  <input
+                    type="text"
+                    value={userDetails.companyName}
+                    onChange={(e) => setUserDetails({ ...userDetails, companyName: e.target.value })}
+                    className="w-full py-3 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm text-gray-700 mb-2">GST Number</label>
+                  <input
+                    type="text"
+                    value={userDetails.gstNumber}
+                    onChange={(e) => setUserDetails({ ...userDetails, gstNumber: e.target.value })}
+                    className="w-full py-3 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  />
+                </div>
+              </div>
+              <div className="mt-4">
+                <label className="block text-sm text-gray-700 mb-2">Payment Mode</label>
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    value="upi"
+                    checked={paymentMode === 'upi'}
+                    onChange={(e) => setPaymentMode(e.target.value)}
+                    className="mr-2"
+                  />
+                  <span>UPI</span>
+                </div>
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    value="netbanking"
+                    checked={paymentMode === 'netbanking'}
+                    onChange={(e) => setPaymentMode(e.target.value)}
+                    className="mr-2"
+                  />
+                  <span>Net Banking</span>
+                </div>
+                <div className="flex items-center">
+                  <input
+                    type="radio"
+                    value="card"
+                    checked={paymentMode === 'card'}
+                    onChange={(e) => setPaymentMode(e.target.value)}
+                    className="mr-2"
+                  />
+                  <span>Credit/Debit Card</span>
+                </div>
+              </div>
+              <div className="flex gap-3 mt-6">
+                <button
+                  onClick={() => setShowDetailsForm(false)}
+                  className="flex-1 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="flex-1 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

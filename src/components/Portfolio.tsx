@@ -1,7 +1,8 @@
-import { TrendingUp, Heart, Download, Calendar, Leaf, Users, Droplet, Briefcase } from 'lucide-react';
-import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
+import { TrendingUp, TrendingDown, Leaf, Users, Heart, Droplet, Building, ArrowUpRight, AlertCircle, Download, Calendar } from 'lucide-react';
+import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from 'recharts';
 import type { Page } from '../App';
 import { userPortfolio } from '../data/mockData';
+import { Footer } from './Footer';
 
 interface PortfolioProps {
   onNavigate: (page: Page, id?: string) => void;
@@ -19,7 +20,7 @@ export function Portfolio({ onNavigate }: PortfolioProps) {
 
   const impactData = [
     { category: 'CO₂ Saved', value: userPortfolio.totalImpact.co2Saved, unit: 'kg', icon: Leaf, color: 'text-green-600', bgColor: 'bg-green-100' },
-    { category: 'Jobs Created', value: userPortfolio.totalImpact.jobsCreated, unit: 'jobs', icon: Briefcase, color: 'text-blue-600', bgColor: 'bg-blue-100' },
+    { category: 'Jobs Created', value: userPortfolio.totalImpact.jobsCreated, unit: 'jobs', icon: Building, color: 'text-blue-600', bgColor: 'bg-blue-100' },
     { category: 'Lives Impacted', value: userPortfolio.totalImpact.livesImpacted, unit: 'people', icon: Users, color: 'text-purple-600', bgColor: 'bg-purple-100' },
     { category: 'Trees Planted', value: userPortfolio.totalImpact.treesPlanted, unit: 'trees', icon: Leaf, color: 'text-green-600', bgColor: 'bg-green-100' },
   ];
@@ -207,6 +208,7 @@ export function Portfolio({ onNavigate }: PortfolioProps) {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

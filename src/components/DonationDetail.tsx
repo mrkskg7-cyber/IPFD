@@ -1,8 +1,9 @@
-import { ArrowLeft, Shield, Heart, Users, Calendar, CheckCircle, MapPin } from 'lucide-react';
+import { Heart, Shield, Users, Calendar, MapPin, Target, TrendingUp, ArrowLeft, CheckCircle } from 'lucide-react';
 import { useState } from 'react';
 import type { Page } from '../App';
 import { donations } from '../data/mockData';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { Footer } from './Footer';
 
 interface DonationDetailProps {
   donationId: string;
@@ -354,6 +355,7 @@ export function DonationDetail({ donationId, onNavigate }: DonationDetailProps) 
           </div>
         </div>
       )}
+      <Footer />
     </div>
   );
 }
